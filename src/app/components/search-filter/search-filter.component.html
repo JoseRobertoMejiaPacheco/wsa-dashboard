@@ -1,0 +1,72 @@
+<!-- Instalar npm install --save @ng-select/ng-select -->
+<!-- Agregar el estilo con import en C:\Users\ISSCJRMP\Documents\ISSC811\Peimbert\wsa-dashboard\src\styles.css -->
+<td>
+  <tr>
+    <!-- <label>Your first ng-select</label> -->
+    <ng-select
+      [items]="dimensions"
+      placeholder="Select Dimension"
+      [(ngModel)]="selectedDimension"
+      [editableSearchTerm]="false"
+      style="margin: 10px;"
+    >
+    </ng-select>
+  </tr>
+</td>
+<td>
+  <tr>
+    <ng-select
+      [multiple]="true"
+      placeholder="Select Client(s)"
+      [(ngModel)]="selectedClients"
+      style="margin: 0px;"
+    >
+      <!-- [disabled]="car.disabled" -->
+      <ng-option *ngFor="let client of clients">{{ client }}</ng-option>
+      <!-- <ng-option [value]="'custom'">Custom</ng-option> -->
+    </ng-select>
+
+    <!-- <br/>Selected car ID: {{selectedCars | json}} -->
+  </tr>
+</td>
+<td>
+  <tr>
+    <!-- <label>Your first ng-select</label> -->
+    <ng-select
+      [multiple]="true"
+      [items]="months"
+      bindLabel="name"
+      placeholder="Select Month(s)"
+      [(ngModel)]="selectedMonths"
+      [editableSearchTerm]="false"
+      style="margin: 0px;"
+    >
+    </ng-select>
+  </tr>
+</td>
+<td>
+    <tr>
+      <!-- <label>Your first ng-select</label> -->
+      <ng-select
+        [multiple]="true"
+        [items]="years"
+        bindLabel="name"
+        placeholder="Select Years)"
+        [(ngModel)]="selectedYears"
+        [editableSearchTerm]="false"
+        style="margin: 0px;"
+      >
+      </ng-select>
+    </tr>
+  </td>
+<td>
+</td>
+<div class="form-group">
+  <button type="submit"
+    (click)="onChange()"     
+    style="margin: 0;"
+    class="btn btn-dark btn-block"
+  >
+    Do Selection
+  </button>
+</div>

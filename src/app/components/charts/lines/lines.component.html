@@ -1,0 +1,35 @@
+<div class="row">
+  <div class="col-md-6">
+    <!-- <h1 *ngFor="let item of lineChartData; let i= index">{{item.label}}</h1> -->
+    <div style="display: block;">
+      <!-- [labels]="lineChartLabels" -->
+    <canvas baseChart width="400" height="400"
+                [datasets]="lineChartData"
+                
+                [options]="lineChartOptions"
+                [colors]="lineChartColors"
+                [legend]="lineChartLegend"
+                [chartType]="lineChartType"
+                (chartHover)="chartHovered($event)"
+                (chartClick)="chartClicked($event)"></canvas>
+    </div>
+  </div>
+
+  <div class="col-md-6" style="margin-bottom: 10px">
+
+    <table class="table table-responsive table-condensed">
+      <!-- Renglon, será el nombre de las columnas, muestra los renglones -->
+      <tr>
+        <!-- elemento del chartdataset, i es index o contador  elemeto.propiedad -->
+         <th *ngFor="let item of lineChartData; let i= index">{{item.label}}</th>
+      </tr> 
+      
+      <!-- Esto es un for anidado, se recorren y se crean la cantidad de renglones  -->
+      <tr *ngFor="let label of lineChartData; let j=index" >
+        <td *ngFor="let renglones of lineChartData;">{{renglones.data[j]}}</td>
+      </tr>
+    </table>
+
+    <button class="btn btn-primary btn-block" (click)="randomize()">CLICK</button>
+  </div>
+</div>
