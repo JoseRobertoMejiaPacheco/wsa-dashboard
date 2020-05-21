@@ -40,7 +40,7 @@ export class PieImplementedComponent implements OnInit {
     let values: number[] = [];
     let items: string[] = [];
     this.httpClient
-      .post('http://localhost:89/isscjrmp/nortwind/GetDataPie', dataToSend)
+      .post('http://192.168.8.102:89/isscjrmp/nortwind/GetDataPie', dataToSend)
       .subscribe(
         (res: any) => {
           const temp_max = res.map((res) => res);

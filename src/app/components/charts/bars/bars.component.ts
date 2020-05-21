@@ -43,14 +43,14 @@ export class BarsComponent {
       years: this.service.globalSelectedYears,
     };
     this.httpClient
-      .post(`http://localhost:89/isscjrmp/nortwind/GetDataBar`, dataToSend)
+      .post(`http://192.168.8.102:89/isscjrmp/nortwind/GetDataBar`, dataToSend)
       .subscribe((res: any) => {
         this.barChartData = res.map((res) => res);
         this.ChangeChartColors();
         console.log(this.barChartData);
       });
     this.httpClient
-      .post(`http://localhost:89/isscjrmp/nortwind/GetLabelsBar`, dataToSend)
+      .post(`http://192.168.8.102:89/isscjrmp/nortwind/GetLabelsBar`, dataToSend)
       .subscribe((res: any) => {
         this.barChartLabels = res.map((res) => res);
         console.log(res);
